@@ -1,0 +1,14 @@
+*.class
+*.cache
+*.log
+
+metals.sbt
+
+!.metals/.gitkeep
+.metals
+
+!.bloop/.gitkeep
+.bloop
+
+!target/.gitkeep
+target
