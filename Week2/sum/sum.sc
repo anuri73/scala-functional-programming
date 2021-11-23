@@ -10,3 +10,8 @@ def sum(f: Int => Int, a: Int, b: Int): Int = {
 }
 
 println(sum(x => x * x, 1, 3))
+
+def sumCurried(f: Int => Int)(a: Int, b: Int): Int =
+  if (a > b) 0 else f(a) + sumCurried(f)(a + 1, b)
+
+println(sumCurried(x => x * x)(1, 3))
