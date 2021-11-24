@@ -36,9 +36,17 @@ class Rational(x: Int, y: Int) :
   def max(that:Rational):Rational = 
     if this.less(that) then that else this
 
+  def min(that:Rational):Rational = 
+    if this.less(that) then this else that
+
   override def toString = s"${numer / gcd(x.abs, y)}/${denom / gcd(x.abs, y)}"
 
 end Rational
+
+extension (x:Rational)
+  def + (y:Rational):Rational = x.add(y)
+  def * (y:Rational):Rational = x.mul(y)
+  infix def min(that:Rational):Rational = x.min(that)
 
 val x = Rational(1, 3)
 val y = Rational(5, 7)
@@ -47,6 +55,10 @@ val q = Rational(3)
 
 x.add(y).mul(z)
 
+(x + y) * z
+
 y.neg
 
 x.sub(y).sub(z)
+
+x min y
